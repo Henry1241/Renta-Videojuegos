@@ -5,6 +5,7 @@
 package vistas;
 
 import controller.CatalogoJuegos;
+import controller.CatalogoUsuarios;
 import controller.HistorialVentas;
 import vistas.Usuario.pnlUsuarios;
 import vistas.Empresa.frmEmpresa;
@@ -16,9 +17,10 @@ import vistas.Renta.pnlVenta;
  * @author alumnog
  */
 public class frmPrincipal extends javax.swing.JFrame {
-    
+
     static public CatalogoJuegos _catalogoJuegos = new CatalogoJuegos();
     public static HistorialVentas _historialVentas = new HistorialVentas();
+    public static CatalogoUsuarios  _catalogoUsuarios = new CatalogoUsuarios();
 
     pnlJuegos _panelJuegos = new pnlJuegos();
     frmEmpresa _frameEmpresa = new frmEmpresa();
@@ -220,7 +222,8 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void lblProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProductosMouseClicked
         _panelUsuarios.setVisible(false);
-         _panelJuegos.setVisible(true);
+        _panelJuegos.setVisible(true);
+        _frameEmpresa.setVisible(false);
         _panelVentas.setVisible(false);
         panelPrincipal.add(_panelJuegos);
     }//GEN-LAST:event_lblProductosMouseClicked
@@ -228,20 +231,22 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void lblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUsuariosMouseClicked
         _panelUsuarios.setVisible(true);
         _panelJuegos.setVisible(false);
+        _frameEmpresa.setVisible(false);
         _panelVentas.setVisible(false);
         panelPrincipal.add(_panelUsuarios);
     }//GEN-LAST:event_lblUsuariosMouseClicked
 
     private void lblEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmpresasMouseClicked
-
+        _panelUsuarios.setVisible(true);
+        _panelJuegos.setVisible(false);
         _frameEmpresa.setVisible(true);
-
+        _panelVentas.setVisible(false);
         panelPrincipal.add(_frameEmpresa);
     }//GEN-LAST:event_lblEmpresasMouseClicked
 
     private void lblVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVentasMouseClicked
         _panelUsuarios.setVisible(false);
-         _panelJuegos.setVisible(false);
+        _panelJuegos.setVisible(false);
         _panelVentas.setVisible(true);
         panelPrincipal.add(_panelVentas);
     }//GEN-LAST:event_lblVentasMouseClicked

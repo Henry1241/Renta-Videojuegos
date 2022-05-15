@@ -14,7 +14,12 @@ import java.util.List;
  */
 public class CatalogoUsuarios {
     
-    List<Persona> _listaPersonas = new ArrayList();
+    private List<Persona> _listaPersonas = new ArrayList();
+    
+    public void agregarUsuario(Persona per){
+        this._listaPersonas.add(per);
+        
+    }
     
     public void login(){
         
@@ -34,6 +39,10 @@ public class CatalogoUsuarios {
     
     public void listaUsuarios(){
         
+    }
+    
+    public List<Persona> listaUsuario(){
+        return _listaPersonas;
     }
     
     

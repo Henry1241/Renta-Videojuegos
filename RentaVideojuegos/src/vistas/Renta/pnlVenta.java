@@ -523,13 +523,8 @@ public class pnlVenta extends javax.swing.JPanel {
         if(frmPrincipal._historialVentas.getCompradores().size() > 0 && indice > -1){
             Persona comprador = frmPrincipal._historialVentas.getCompradores().get(indice);
 
-            if(!comprador.isRenta()){
-                cboCredito.setSelectedIndex(0);
-                cboCredito.setEnabled(false);
-            }else{
-                cboCredito.setSelectedIndex(0);
-                cboCredito.setEnabled(true);
-            }
+            
+            
         }
     }//GEN-LAST:event_cboCompradorActionPerformed
 

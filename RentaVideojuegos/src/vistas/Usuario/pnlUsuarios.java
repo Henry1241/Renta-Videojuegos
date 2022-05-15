@@ -4,6 +4,10 @@
  */
 package vistas.Usuario;
 
+import entyties.Persona;
+import javax.swing.table.DefaultTableModel;
+import vistas.frmPrincipal;
+
 /**
  *
  * @author alumnog
@@ -15,6 +19,29 @@ public class pnlUsuarios extends javax.swing.JPanel {
      */
     public pnlUsuarios() {
         initComponents();
+
+        this.mostrarDatos();
+    }
+
+    public void mostrarDatos() {
+
+        DefaultTableModel _model = (DefaultTableModel) this.tblPersona.getModel();
+
+        _model.setRowCount(0);
+
+        for (Persona _per : frmPrincipal._catalogoUsuarios.listaUsuario()) {
+
+            _model.addRow(new Object[]{_per.getNombre(),
+                _per.getNumeroControl(),
+                _per.getNombre(),
+                _per.getEdad(),
+                _per.getTelefono(),
+                _per.getDireccion(),
+                _per.getCorreoElectronico()});
+
+        }
+
+        this.tblPersona.setModel(_model);
     }
 
     /**
@@ -27,7 +54,7 @@ public class pnlUsuarios extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblArticulos = new javax.swing.JTable();
+        tblPersona = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
@@ -36,8 +63,8 @@ public class pnlUsuarios extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 51, 102));
         setPreferredSize(new java.awt.Dimension(622, 483));
 
-        tblArticulos.setBackground(java.awt.Color.lightGray);
-        tblArticulos.setModel(new javax.swing.table.DefaultTableModel(
+        tblPersona.setBackground(java.awt.Color.lightGray);
+        tblPersona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -60,11 +87,17 @@ public class pnlUsuarios extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblArticulos);
+        jScrollPane1.setViewportView(tblPersona);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Buscar");
+
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(0, 51, 102));
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add-icon.png"))); // NOI18N
@@ -125,7 +158,14 @@ public class pnlUsuarios extends javax.swing.JPanel {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
+        frmFormularioUsuario _frmUsuario = new frmFormularioUsuario(null, true);
+        _frmUsuario.setVisible(true);
+        this.mostrarDatos();
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -133,7 +173,7 @@ public class pnlUsuarios extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblArticulos;
+    private javax.swing.JTable tblPersona;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

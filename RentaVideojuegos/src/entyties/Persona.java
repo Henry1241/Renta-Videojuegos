@@ -15,7 +15,6 @@ public class Persona {
     private String nombre = new String();
     private String direccion = new String();
     private int edad = 0;
-    private boolean renta = false;
     private String telefono = new String();
     private String usuario = new String();
     private String correoElectronico = new String();
@@ -80,14 +79,6 @@ public class Persona {
 
     public void setNumeroControl(int numeroControl) {
         this.numeroControl = numeroControl;
-    }
-
-    public boolean isRenta() {
-        return renta;
-    }
-
-    public void setRenta(boolean renta) {
-        this.renta = renta;
     }
 
 }
