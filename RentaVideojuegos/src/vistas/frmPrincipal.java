@@ -239,7 +239,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void lblEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmpresasMouseClicked
         _panelUsuarios.setVisible(true);
         _panelJuegos.setVisible(false);
-        _frameEmpresa.setVisible(true);
+    _frameEmpresa.setVisible(true);
         _panelVentas.setVisible(false);
         panelPrincipal.add(_frameEmpresa);
     }//GEN-LAST:event_lblEmpresasMouseClicked
